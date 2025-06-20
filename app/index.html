@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="styles.css">
+    <title>Telegram MiniApp</title>
+</head>
+<body>
+<div class="header">
+    <ul class="nav">
+        <li><a href="#home">Главная</a></li>
+        <li><a href="#shop">Магазин</a></li>
+        <li><a href="#cases">Кейсы</a></li>
+    </ul>
+</div>
+
+<div id="content">
+    <section id="home">
+        <h2>Начни зарабатывать прямо сейчас!</h2>
+        <img id="money-button" src="image.png" alt="Получить рубли" onclick="earnMoney()" />
+        <span id="balance-info">Баланс: <b id="current-balance">0</b> ₽</span>
+        <br/>
+        <span id="clicks-left">Осталось нажатий: <b id="remaining-clicks">10</b></span>
+    </section>
+
+    <section id="shop">
+        <h2>Магазин</h2>
+        <div class="product-item">
+            <img src="item1.jpg" alt="Продукт 1">
+            <span>Цена: 5₽</span>
+        </div>
+        <div class="product-item">
+            <img src="item2.jpg" alt="Продукт 2">
+            <span>Цена: 10₽</span>
+        </div>
+    </section>
+
+    <section id="cases">
+        <h2>Кейсы</h2>
+        <div class="case-item">
+            <img src="case1.jpg" alt="Кейс 1">
+            <button onclick="openCase()">Открыть кейс</button>
+        </div>
+        <div class="case-item">
+            <img src="case2.jpg" alt="Кейс 2">
+            <button onclick="openCase()">Открыть кейс</button>
+        </div>
+    </section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
