@@ -4,51 +4,147 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="styles.css">
-    <title>Telegram MiniApp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Spublic Casino</title>
 </head>
 <body>
-<div class="header">
-    <ul class="nav">
-        <li><a href="#home">Главная</a></li>
-        <li><a href="#shop">Магазин</a></li>
-        <li><a href="#cases">Кейсы</a></li>
-    </ul>
-</div>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="Spublic.ico" alt="Spublic" class="logo-icon">
+                    <span class="logo-text">Spublic</span>
+                </div>
+                <div class="balance-header">
+                    <div class="balance-display">
+                        <img src="coin.png" alt="Монеты" class="coin-small">
+                        <span id="header-balance">0</span>
+                    </div>
+                    <button class="profile-btn" onclick="toggleProfile()">
+                        <img src="Member.png" alt="Профиль" class="profile-icon">
+                    </button>
+                </div>
+            </div>
+        </header>
 
-<div id="content">
-    <section id="home">
-        <h2>Начни зарабатывать прямо сейчас!</h2>
-        <img id="money-button" src="image.png" alt="Получить рубли" onclick="earnMoney()" />
-        <span id="balance-info">Баланс: <b id="current-balance">0</b> ₽</span>
-        <br/>
-        <span id="clicks-left">Осталось нажатий: <b id="remaining-clicks">10</b></span>
-    </section>
+        <!-- Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" data-section="home">
+                <i class="fas fa-home"></i>
+                <span>Главная</span>
+            </button>
+            <button class="nav-item" data-section="shop">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Магазин</span>
+            </button>
+            <button class="nav-item" data-section="cases">
+                <i class="fas fa-gift"></i>
+                <span>Кейсы</span>
+            </button>
+        </nav>
 
-    <section id="shop">
-        <h2>Магазин</h2>
-        <div class="product-item">
-            <img src="item1.jpg" alt="Продукт 1">
-            <span>Цена: 5₽</span>
+        <!-- Profile Sidebar -->
+        <div id="profile-sidebar" class="profile-sidebar">
+            <div class="profile-header">
+                <h3>Мой Профиль</h3>
+                <button class="close-profile" onclick="toggleProfile()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="profile-content">
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Баланс:</span>
+                        <span class="stat-value" id="profile-balance">0 ₽</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Кейсов открыто:</span>
+                        <span class="stat-value" id="cases-opened">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Покупок совершено:</span>
+                        <span class="stat-value" id="purchases-made">0</span>
+                    </div>
+                </div>
+                
+                <div class="profile-section">
+                    <h4>История кейсов</h4>
+                    <div id="case-history" class="history-list">
+                        <p class="no-history">Кейсы еще не открывались</p>
+                    </div>
+                </div>
+                
+                <div class="profile-section">
+                    <h4>История покупок</h4>
+                    <div id="purchase-history" class="history-list">
+                        <p class="no-history">Покупки еще не совершались</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="product-item">
-            <img src="item2.jpg" alt="Продукт 2">
-            <span>Цена: 10₽</span>
-        </div>
-    </section>
 
-    <section id="cases">
-        <h2>Кейсы</h2>
-        <div class="case-item">
-            <img src="case1.jpg" alt="Кейс 1">
-            <button onclick="openCase()">Открыть кейс</button>
-        </div>
-        <div class="case-item">
-            <img src="case2.jpg" alt="Кейс 2">
-            <button onclick="openCase()">Открыть кейс</button>
-        </div>
-    </section>
-</div>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Home Section -->
+            <section id="home" class="section active">
+                <div class="home-content">
+                    <div class="welcome-card">
+                        <h1>Добро пожаловать в Spublic!</h1>
+                        <p>Зарабатывай монеты, покупай предметы и открывай кейсы</p>
+                    </div>
+                    
+                    <div class="earning-section">
+                        <div class="coin-container">
+                            <img id="money-button" src="coin.png" alt="Получить монеты" class="coin-button">
+                            <div class="coin-glow"></div>
+                        </div>
+                        
+                        <div class="earning-info">
+                            <div class="balance-card">
+                                <span class="balance-label">Ваш баланс</span>
+                                <div class="balance-amount">
+                                    <img src="coin.png" alt="Монеты" class="coin-icon">
+                                    <span id="current-balance">0</span>
+                                </div>
+                            </div>
+                            
+                            <div class="clicks-card">
+                                <span class="clicks-label">Осталось нажатий</span>
+                                <span class="clicks-count" id="remaining-clicks">10</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-<script src="script.js"></script>
+            <!-- Shop Section -->
+            <section id="shop" class="section">
+                <div class="section-header">
+                    <h2>Магазин</h2>
+                    <p>Покупай уникальные предметы</p>
+                </div>
+                <div class="shop-grid masonry-grid" id="shop-grid">
+                    <!-- Shop items will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Cases Section -->
+            <section id="cases" class="section">
+                <div class="section-header">
+                    <h2>Кейсы</h2>
+                    <p>Открывай кейсы и получай редкие предметы</p>
+                </div>
+                <div class="cases-grid masonry-grid" id="cases-grid">
+                    <!-- Cases will be populated by JavaScript -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Overlay -->
+        <div id="overlay" class="overlay" onclick="toggleProfile()"></div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
